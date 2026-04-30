@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset = "UTF-8">
+    <title>AI Chat</title>
+    <!-- 引入 marked.js 用于渲染 Markdown -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <input type="text" id="input_text" style="padding:10px;margin:10px;width:300px;">
+
+    <button onclick = "sendMessage()">
+        发送
+    </button>
+    <hr>
+    <h3>AI回复：</h3>
+    <div id="response" style="border:1px solid #ccc;padding:20px;min-height:100px;"> 
+        
+    </div>
+    <script
+    src="{{ url_for('static', filename='js/AIStream.js') }}"
+    ></script>
+</body>
+</html>
