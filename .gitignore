@@ -15,3 +15,13 @@ env/
 # OS
 .DS_Store
 Thumbs.db
+
+# Chroma
+chroma_db/
+
+# md5缓存
+md5_db/
+
+# vector store
+vectorstores/
+*.csv
