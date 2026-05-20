@@ -3,9 +3,8 @@ import config.config_data as config
 import hashlib
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_chroma import Chroma
-from langchain_ollama import embeddings
+from langchain_ollama import OllamaEmbeddings
 from datetime import datetime
-from pathlib import Path
 def check_md5(md5_str: str):
     if not os.path.exists(config.md5_path):
 
@@ -36,7 +35,7 @@ def get_string_md5(input_string: str,encoding="utf-8"):
     md5_hex = md5_obj.hexdigest()
     return md5_hex
 
-embeddings = embeddings.OllamaEmbeddings(model="qwen3-embedding", base_url="http://localhost:11434")
+embeddings = OllamaEmbeddings(model=config.embedding_model, base_url="http://localhost:11434")
 
 
 class KnowledgeBaseService(object):

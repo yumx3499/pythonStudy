@@ -1,6 +1,7 @@
 import streamlit as st
 from knowledge_base import KnowledgeBaseService
 import time
+from rag_service import RagService
 
 st.title("知识库文件更新服务")
 
@@ -14,6 +15,10 @@ if "counter" not in st.session_state:
     st.session_state["counter"] =0
 if "service" not in st.session_state:
     st.session_state["service"] = KnowledgeBaseService()
+
+if "answer" not in st.session_state:
+    st.session_state["answer"] = RagService()
+
 
 if uploaded_file is not None:
     filename = uploaded_file.name
@@ -31,3 +36,13 @@ if uploaded_file is not None:
         st.session_state["counter"] += 1
 
 print(f"上传了：{st.session_state["counter"]}个文件")
+
+st.title("内部提问系统")
+
+question = st.text_input("请输入问题：")
+
+if st.button("提问") and question:
+    with st.spinner("正在处理..."):
+        time.sleep(3)
+        res = st.session_state["answer"].get_answer(question)
+        st.write(res)
