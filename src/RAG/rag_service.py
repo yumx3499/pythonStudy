@@ -78,7 +78,7 @@ class RagService(object):
 
         return chain
     def get_answer(self,question):
-        return self.chain.invoke({"input":question},config=self.session_config)
+        return self.chain.stream({"input":question},config=self.session_config)
 
 if __name__ == '__main__':
     res = RagService().get_answer("请给我关于退货率的分析")
