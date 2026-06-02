@@ -14,7 +14,7 @@ max_split_char_length=100
 
 # model
 embedding_model="qwen3-embedding:4b"
-chat_model="deepseek-r1:8b"
+chat_model="qwen3.5:9b"
 
 # chat history
 history_storage_path="./chat_history"

@@ -17,7 +17,7 @@ class RagService(object):
 
         self.prompt = ChatPromptTemplate.from_messages(
                 [("system", "你是一个公司的助手，请完全根据提供的资料回答用户的提问，资料以外的内容请忽略。"
-                    "并附带相关的元数据。"
+                    "并附带所有相关的元数据。"
                   "如果没找到答案，请不要瞎编回答，回复：未找到相关内容。提供的资料{context}"),
                   ("system", "并且我会提供历史会话记录.记录如下："),
                 MessagesPlaceholder("chat_history"),
